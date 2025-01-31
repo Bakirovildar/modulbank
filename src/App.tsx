@@ -8,11 +8,11 @@ import ReactPlayer from 'react-player';
 const VIDEO_URL = 'https://cdn.flowplayer.com/d9cd469f-14fc-4b7b-a7f6-ccbfa755dcb8/hls/383f752a-cbd1-4691-a73f-a4e583391b3d/playlist.m3u8';
 
 function App() {
-    const [state, send] = useMachine(videoPlayerMachine, { devTools: true });
+    const [state, send] = useMachine(videoPlayerMachine);
 
     const isPlaying = state.context.isPlaying;
     const isPlayerVisible = state.matches('opened');
-    const isDefaultSize = state.matches('opened.size.default');
+    const isDefaultSize = state.matches({ opened: { size: 'default' } });
 
     const closePlayer = async () => {
         await send({ type: 'TOGGLE_PAUSED' });

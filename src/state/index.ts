@@ -1,9 +1,13 @@
 import {assign, setup} from 'xstate';
 
+interface PlayerContext {
+    isPlaying: Boolean
+}
+
 export const videoPlayerMachine = setup({
     actions: {
-        playVideo: assign({ isPlaying: (context) => context.isPlaying = true }),
-        pauseVideo: assign({ isPlaying: (context) => context.isPlaying = false }),
+        playVideo: assign({ isPlaying: (context: PlayerContext ) => context.isPlaying = true }),
+        pauseVideo: assign({ isPlaying: (context: PlayerContext) => context.isPlaying = false }),
     }
 }).createMachine({
         id: 'videoPlayer',
