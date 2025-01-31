@@ -5,7 +5,13 @@
   text-align: center;
 }
 
-.player-modal {
+.player-icon svg {
+  width: 64px;
+  height: 64px;
+  color: #8585ff;
+}
+
+.closed-player {
   box-sizing: border-box;
   margin: 0 auto;
   border: 2px solid #8585ff;
@@ -14,4 +20,8 @@
   height: 250px;
   width: 500px;
   justify-content: center;
+}
+
+.opened-player {
+  margin: 5vh auto auto;
 }
